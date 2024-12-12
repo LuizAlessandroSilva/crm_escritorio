@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle Arruda Ribeiro Advocacia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #1b2b3a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .form-section {
+            width: 50%;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .document-section {
+            width: 50%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .document-section table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .document-section table, .document-section th, .document-section td {
+            border: 1px solid #ddd;
+        }
+
+        .document-section th, .document-section td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .document-section .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .actions button {
+            margin-left: 10px;
+            background-color: #1b2b3a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #1b2b3a;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #1b2b3a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1b2b3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/LogoAR.png" alt="" id="logo">
+        <h1>Sistema de Controle Arruda Ribeiro Advocacia</h1>
+    </header>
+    <div class="container">
+        <div class="form-section">
+            <form id="control-form">
+                <div class="form-group">
+                    <label for="cliente">Nome do Cliente:</label>
+                    <input type="text" id="cliente" name="cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parceiro">Parceiro:</label>
+                    <input type="text" id="parceiro" name="parceiro">
+                </div>
+                <div class="form-group">
+                    <label for="area">Área de Atuação:</label>
+                    <input type="text" id="area" name="area">
+                </div>
+                <div class="form-group">
+                    <label for="processo">Processo:</label>
+                    <input type="text" id="processo" name="processo">
+                </div>
+                <div class="form-group">
+                    <label for="valor-total">Valor Total do Processo:</label>
+                    <input type="number" id="valor-total" name="valor-total" required>
+                </div>
+                <div class="form-group">
+                    <label for="pagamento">Forma de Pagamento:</label>
+                    <select id="pagamento" name="pagamento" required>
+                        <option value="">Selecione</option>
+                        <option value="avista">À Vista</option>
+                        <option value="parcelado">Parcelado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parcelas">Número de Parcelas:</label>
+                    <input type="number" id="parcelas" name="parcelas" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="forma-pagamento">Forma de Pagamento:</label>
+                    <select id="forma-pagamento" name="forma-pagamento">
+                        <option value="">Selecione</option>
+                        <option value="transferencia">Transferência</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="banco">Banco:</label>
+                    <select id="banco" name="banco">
+                        <option value="">Selecione</option>
+                        <option value="BB">Banco do Brasil</option>
+                        <option value="Caixa">Caixa Econômica</option>
+                        <option value="Itaú">Itaú</option>
+                        <option value="Bradesco">Bradesco</option>
+                        <option value="Santander">Santander</option>
+                        <option value="Viacredi">Viacredi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data">Data de Entrada:</label>
+                    <input type="date" id="data" name="data">
+                </div>
+                <div class="form-group">
+                    <label for="entrada">Valor da Entrada:</label>
+                    <input type="number" id="entrada" name="entrada" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="rj-integral">Valor RJ Integral:</label>
+                    <input type="number" id="rj-integral" name="rj-integral" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="parceiro-nome">Nome do Parceiro:</label>
+                    <input type="text" id="parceiro-nome" name="parceiro-nome">
+                </div>
+                <div class="form-group">
+                    <label for="porcentagem">Porcentagem do Parceiro:</label>
+                    <input type="number" id="porcentagem" name="porcentagem" step="0.01" readonly>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="btn">Salvar Dados</button>
+                    <button type="button" id="clear-button" class="btn">Limpar Dados</button>
+                </div>
+            </form>
+        </div>
+        <div class="document-section">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dados aparecerão aqui -->
+                </tbody>
+            </table>
+            <div class="actions">
+                <button id="print-button">Imprimir</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const valorTotalInput = document.getElementById('valor-total');
+        const rjIntegralInput = document.getElementById('rj-integral');
+        const porcentagemInput = document.getElementById('porcentagem');
+        const dataTableBody = document.getElementById('data-table').querySelector('tbody');
+        const form = document.getElementById('control-form');
+        const printButton = document.getElementById('print-button');
+        const clearButton = document.getElementById('clear-button');
+
+        // Cálculos automáticos
+        valorTotalInput.addEventListener('input', () => {
+            const valorTotal = parseFloat(valorTotalInput.value) || 0;
+            rjIntegralInput.value = (valorTotal * 0.7).toFixed(2);
+            porcentagemInput.value = (valorTotal * 0.3).toFixed(2);
+        });
+
+        // Submeter dados ao formulário
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            // Limpar tabela
+            dataTableBody.innerHTML = '';
+
+            // Inserir dados
+            formData.forEach((value, key) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${key}</td><td>${value}</td>`;
+                dataTableBody.appendChild(row);
+            });
+        });
+
+        // Limpar formulário
+        clearButton.addEventListener('click', () => {
+            form.reset();
+            rjIntegralInput.value = '';
+            porcentagemInput.value = '';
+        });
+
+        // Imprimir
+        printButton.addEventListener('click', () => {
+            window.print();
+        });
+    </script>
+</body>
+</html>
